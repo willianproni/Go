@@ -118,3 +118,5 @@ func (b *Book) AddTransaction(transaction *Transaction, wg *sync.WaitGroup) {
 
 	b.Transactions = append(b.Transactions, transaction)
 }
+
+//Teste de books
