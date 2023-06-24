@@ -26,8 +26,8 @@ func NewBook(orderChan chan *Order, orderChanOut chan *Order, wg *sync.WaitGroup
 func (b *Book) Trade() { //Função para realizar a compra e venda
 	//****
 	//Criando duas filas
-	buyOrders := make(map[string]*OrderQueue)
-	sellOrders := make(map[string]*OrderQueue)
+	buyOrders := make(map[string]*OrderQueue)  //Percorrendo a fila de compra
+	sellOrders := make(map[string]*OrderQueue) //Percorrendo a fila de venda
 	// buyOrders := NewOrderQueue()  //fila de compra criando novos objetos
 	// sellOrders := NewOrderQueue() //fila de venda criando novos objetos
 
@@ -38,15 +38,18 @@ func (b *Book) Trade() { //Função para realizar a compra e venda
 	for order := range b.OrdersChan { //Percorrendo o canal de Orders (compra e venda)
 		asset := order.Asset.ID
 
-		if buyOrders[asset] == nil {
+		if buyOrders[asset] == nil { //Verificando se a ação existe na fila de compra
+			// se não existir criar um espaço para essa ação
 			buyOrders[asset] = NewOrderQueue()
 			heap.Init(buyOrders[asset])
 		}
 
-		if sellOrders[asset] == nil {
+		if sellOrders[asset] == nil { //Verificando se a ação existe na fila de compra
+			// se não existir criar um espaço para essa ação
 			sellOrders[asset] = NewOrderQueue()
 			heap.Init(sellOrders[asset])
 		}
+
 		if order.OrderType == "BUY" { //Verifica se o tipo da ordem é de compra
 			//se for ordem de compra
 			buyOrders[asset].Push(order)      //Adicionando a ordem na nossa fila de ordem de compra
@@ -118,5 +121,3 @@ func (b *Book) AddTransaction(transaction *Transaction, wg *sync.WaitGroup) {
 
 	b.Transactions = append(b.Transactions, transaction)
 }
-
-//Teste de books 1
