@@ -6,6 +6,8 @@ import (
 	"github.com/google/uuid"
 )
 
+//Arquivo para trasformar informações confirme o esperamos e conforme o kafka espera
+
 type Transaction struct { //Criação de uma transação
 	ID           string
 	SellingOrder *Order    //temos que ter uma ordem de venda
