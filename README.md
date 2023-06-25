@@ -7,8 +7,6 @@
 <p>Foi criando um microsserviço para executar tarefas da bolsa de valores, como funções de compra e venda.
 A função trade que foi desenvolvida dentro da entidade Book, tem como objetivo percorrer os canais de compra e venda
 e dar match quando uma compra se coincidir com uma venda</p>
-<h4>Tecnologia utilizadas no momento
--Golanng
  
 <hr>
 
