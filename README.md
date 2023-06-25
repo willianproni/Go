@@ -10,6 +10,8 @@ e dar match quando uma compra se coincidir com uma venda</p>
  
 <hr>
 
+#Aula 2
+
 <h3>Integração com o Kafka</h3>
 
 <p>Depois da finalização do microsserviço em Go, foi desenvolvido a parte de comunicação com o Kafka um Event Streaming platform
